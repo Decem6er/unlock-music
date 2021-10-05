@@ -22,8 +22,6 @@
 - [x] QQ音乐新格式 (实验性支持)
   - [x] .mflac
   - [x] [.mgg](https://github.com/ix64/unlock-music/issues/3)
-***REMOVED***
-  ***REMOVED***
 - [x] 虾米音乐格式 (.xm) (测试阶段)
 - [x] 酷我音乐格式 (.kwm) (测试阶段)
 - [x] 酷狗音乐格式 (

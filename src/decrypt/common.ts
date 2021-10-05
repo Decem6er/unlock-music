@@ -1,5 +1,3 @@
-import {Decrypt as NcmDecrypt} from "@/decrypt/ncm";
-import {Decrypt as NcmCacheDecrypt} from "@/decrypt/ncmcache";
 import {Decrypt as XmDecrypt} from "@/decrypt/xm";
 import {Decrypt as QmcDecrypt} from "@/decrypt/qmc";
 import {Decrypt as QmcCacheDecrypt} from "@/decrypt/qmccache";
@@ -15,12 +13,6 @@ export async function CommonDecrypt(file: FileInfo): Promise<DecryptResult> {
     const raw = SplitFilename(file.name)
     let rt_data: DecryptResult;
     switch (raw.ext) {
-        ***REMOVED***
-            ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***
-            ***REMOVED***
-            ***REMOVED***
         case "kwm":// Kuwo Mp3/Flac
             rt_data = await KwmDecrypt(file.raw, raw.name, raw.ext);
             break
@@ -30,14 +22,14 @@ export async function CommonDecrypt(file: FileInfo): Promise<DecryptResult> {
         case "flac":// Xiami/Raw Flac
         case "m4a":// Xiami/Raw M4a
             rt_data = await XmDecrypt(file.raw, raw.name, raw.ext);
-            ***REMOVED***
+            break;
         case "ogg":// Raw Ogg
             rt_data = await RawDecrypt(file.raw, raw.name, raw.ext);
-            ***REMOVED***
+            break;
         case "tm0":// QQ Music IOS Mp3
         case "tm3":// QQ Music IOS Mp3
             rt_data = await RawDecrypt(file.raw, raw.name, "mp3");
-            ***REMOVED***
+            break;
         case "qmc3"://QQ Music Android Mp3
         case "qmc2"://QQ Music Android Ogg
         case "qmc0"://QQ Music Android Mp3
@@ -54,14 +46,14 @@ export async function CommonDecrypt(file: FileInfo): Promise<DecryptResult> {
         case "6d3461"://QQ Music Weiyun M4a
         case "776176"://QQ Music Weiyun Wav
             rt_data = await QmcDecrypt(file.raw, raw.name, raw.ext);
-            ***REMOVED***
+            break;
         case "tm2":// QQ Music IOS M4a
         case "tm6":// QQ Music IOS M4a
             rt_data = await TmDecrypt(file.raw, raw.name);
-            ***REMOVED***
+            break;
         case "cache"://QQ Music Cache
             rt_data = await QmcCacheDecrypt(file.raw, raw.name, raw.ext);
-            ***REMOVED***
+            break;
         case "vpr":
         case "kgm":
         case "kgma":
